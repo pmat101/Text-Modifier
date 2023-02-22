@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/navbar";
+import Main from "./components/main";
+import { useState } from "react";
 
 function App() {
+  const [ogMode, newMode] = useState("light");
+  function changeTheme() {
+    if (ogMode === "light") newMode("dark");
+    else newMode("light");
+  } // Change theme by sending function and state as prop
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App text-bg-${ogMode}`}>
+      <Navbar title="Text Modifier" theme={changeTheme} mode={ogMode} />
+      <Main />
     </div>
   );
 }
