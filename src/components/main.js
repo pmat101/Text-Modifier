@@ -43,9 +43,9 @@ export default function Main(props) {
         </button>
       </div>
       <p className="py-3">
-        This text has {input.trim().length} characters and
-        {input.trim().split(" ").length}
-        words.
+        {" "}
+        This text has {input.trim().length} characters and{" "}
+        {input.trim().split(" ").length} words.{" "}
       </p>
     </div>
   );
