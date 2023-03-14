@@ -1,6 +1,9 @@
 import { useState } from "react";
+let textColour;
 
 export default function Main(props) {
+  if (props.mode === "light") textColour = "dark";
+  else textColour = "light";
   function handleChange(e) {
     output(e.target.value);
   }
@@ -13,6 +16,10 @@ export default function Main(props) {
     let low = input.toLowerCase();
     output(low);
   }
+  function trim() {
+    let trimmer = input.trim();
+    output(trimmer);
+  }
   function clText() {
     let empty = "";
     output(empty);
@@ -24,7 +31,7 @@ export default function Main(props) {
       </h2>
       <div className="form-floating">
         <textarea
-          className="form-control"
+          className={`form-control bg-${props.mode} text-${textColour}`}
           placeholder="Leave a comment here"
           id="floatingTextarea"
           style={{ height: "330px" }}
@@ -37,6 +44,9 @@ export default function Main(props) {
         </button>
         <button className="btn btn-primary m-2" onClick={doLow}>
           Make Lowercase
+        </button>
+        <button className="btn btn-primary m-2" onClick={trim}>
+          Trim text
         </button>
         <button className="btn btn-danger m-2" onClick={clText}>
           Clear Text

@@ -12,7 +12,7 @@ function App() {
   return (
     <div className={`App text-bg-${ogMode}`}>
       <Navbar title="Text Modifier" theme={changeTheme} mode={ogMode} />
-      <Main />
+      <Main mode={ogMode} />
     </div>
   );
 }

@@ -34,7 +34,7 @@ export default function navbar(props) {
             </a>
           </div>
         </div>
-        <div className="navbar-nav" onClick={props.theme}>
+        <div className="navbar-nav" role="button" onClick={props.theme}>
           {/* Function sent by App.js as prop */}
           <span className="nav-link">Night Mode &#127769;</span>
         </div>
