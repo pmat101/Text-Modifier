@@ -17,7 +17,14 @@ export default function Main(props) {
     output(low);
   }
   function trim() {
-    let trimmer = input.trim();
+    let arr = input.split(" ");
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === "") {
+        arr.splice(i, 1);
+        i--;
+      }
+    }
+    let trimmer = arr.join(" ");
     output(trimmer);
   }
   function clText() {
