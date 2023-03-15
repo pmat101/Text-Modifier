@@ -18,11 +18,11 @@ export default function Main(props) {
   }
   function trim() {
     let arr = input.split(" ");
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === "") {
-        arr.splice(i, 1);
-        i--;
-      }
+    console.log(arr);
+    let i = 0;
+    while (i < arr.length) {
+      if (arr[i] === "") arr.splice(i, 1);
+      else i++;
     }
     let trimmer = arr.join(" ");
     output(trimmer);
@@ -32,7 +32,7 @@ export default function Main(props) {
     output(empty);
   }
   return (
-    <div className="container">
+    <div className="container" style={{ height: "82vh" }}>
       <h2 className="my-5">
         Welcome to the Text Modifier app *Made using Bootstrap and ReactJS*
       </h2>
@@ -41,7 +41,7 @@ export default function Main(props) {
           className={`form-control bg-${props.mode} text-${textColour}`}
           placeholder="Leave a comment here"
           id="floatingTextarea"
-          style={{ height: "330px" }}
+          style={{ height: "41vh" }}
           value={input} // Initial value of state
           onChange={handleChange} // Allows user to type even after button click
         ></textarea>
@@ -59,10 +59,9 @@ export default function Main(props) {
           Clear Text
         </button>
       </div>
-      <p className="py-3">
-        {" "}
+      <p className="py-4">
         This text has {input.trim().length} characters and{" "}
-        {input.trim().split(" ").length} words.{" "}
+        {input.trim().split(" ").length} words.
       </p>
     </div>
   );

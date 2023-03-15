@@ -4,6 +4,7 @@ export default function navbar(props) {
   return (
     <nav
       className={`navbar navbar-expand-lg bg-body-tertiary bg-${props.mode}`}
+      style={{ height: "10.25vh" }}
       data-bs-theme={props.mode} // Using state value sent as prop
     >
       <div className="container-fluid">
