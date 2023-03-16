@@ -1,5 +1,5 @@
 import { useState } from "react";
-let textColour;
+let textColour, str;
 
 export default function Main(props) {
   if (props.mode === "light") textColour = "dark";
@@ -8,6 +8,12 @@ export default function Main(props) {
     output(e.target.value);
   }
   const [input, output] = useState(""); // State management
+  function dummy() {
+    str =
+      str +
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit ipsum aspernatur porro blanditiis vel, distinctio impedit. Voluptatum cum consectetur officiis velit quisquam dolorum provident aliquid corporis, reprehenderit animi. Corrupti, hic. \n";
+    output(str);
+  }
   function doUp() {
     let up = input.toUpperCase();
     output(up); // Changing state, can't do it using assignment operator
@@ -28,8 +34,8 @@ export default function Main(props) {
     output(trimmer);
   }
   function clText() {
-    let empty = "";
-    output(empty);
+    str = "";
+    output(str);
   }
   return (
     <div className="container" style={{ height: "82vh" }}>
@@ -46,13 +52,16 @@ export default function Main(props) {
           onChange={handleChange} // Allows user to type even after button click
         ></textarea>
         <label htmlFor="floatingTextarea">Enter your text here:</label>
-        <button className="btn btn-primary m-2" onClick={doUp}>
+        <button className="btn btn-primary m-2" onClick={dummy}>
+          Generate random text
+        </button>
+        <button className="btn btn-secondary m-2" onClick={doUp}>
           Make Uppercase
         </button>
-        <button className="btn btn-primary m-2" onClick={doLow}>
+        <button className="btn btn-secondary m-2" onClick={doLow}>
           Make Lowercase
         </button>
-        <button className="btn btn-primary m-2" onClick={trim}>
+        <button className="btn btn-secondary m-2" onClick={trim}>
           Trim text
         </button>
         <button className="btn btn-danger m-2" onClick={clText}>
