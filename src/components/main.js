@@ -1,5 +1,6 @@
 import { useState } from "react";
-let textColour, str;
+let textColour;
+let str = "";
 
 export default function Main(props) {
   if (props.mode === "light") textColour = "dark";
@@ -33,6 +34,9 @@ export default function Main(props) {
     let trimmer = arr.join(" ");
     output(trimmer);
   }
+  function copy() {
+    navigator.clipboard.writeText(input);
+  }
   function clText() {
     str = "";
     output(str);
@@ -55,14 +59,17 @@ export default function Main(props) {
         <button className="btn btn-primary m-2" onClick={dummy}>
           Generate random text
         </button>
-        <button className="btn btn-secondary m-2" onClick={doUp}>
+        <button className={`btn btn-${textColour} m-2`} onClick={doUp}>
           Make Uppercase
         </button>
-        <button className="btn btn-secondary m-2" onClick={doLow}>
+        <button className={`btn btn-${textColour} m-2`} onClick={doLow}>
           Make Lowercase
         </button>
-        <button className="btn btn-secondary m-2" onClick={trim}>
+        <button className={`btn btn-${textColour} m-2`} onClick={trim}>
           Trim text
+        </button>
+        <button className="btn btn-success m-2" onClick={copy}>
+          Copy Text
         </button>
         <button className="btn btn-danger m-2" onClick={clText}>
           Clear Text
@@ -70,7 +77,7 @@ export default function Main(props) {
       </div>
       <p className="py-4">
         This text has {input.trim().length} characters and{" "}
-        {input.trim().split(" ").length} words.
+        {input.trim().split.length} words.
       </p>
     </div>
   );
