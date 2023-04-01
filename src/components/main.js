@@ -1,5 +1,5 @@
 import { useState } from "react";
-let textColour;
+let textColour, count;
 let str = "";
 export default function Main(props) {
   if (props.mode === "light") textColour = "dark";
@@ -10,9 +10,12 @@ export default function Main(props) {
   const [input, output] = useState(""); // State management
   function dummy() {
     let nowords = parseInt(prompt("ENTER NUMBER OF WORDS: (max 999)"));
-    let newArr = litarr.splice(0, nowords);
-    str = str + newArr.join(" ");
-    output(str);
+    if (nowords > 999) alert("SORRY, MAXIMUM 999 WORDS AT A TIME!");
+    else {
+      let newArr = litarr.slice(0, nowords);
+      str = str + newArr.join(" ") + "\n";
+      output(str);
+    }
   }
   function doUp() {
     let up = input.toUpperCase();
@@ -24,7 +27,6 @@ export default function Main(props) {
   }
   function trim() {
     let arr = input.split(" ");
-    console.log(arr);
     let i = 0;
     while (i < arr.length) {
       if (arr[i] === "") arr.splice(i, 1);
@@ -40,6 +42,9 @@ export default function Main(props) {
     str = "";
     output(str);
   }
+  let wordCount = input.trim().split(" ");
+  if (wordCount[0] === "") count = 0;
+  else count = wordCount.length;
   return (
     <div className="container" style={{ height: "82vh" }}>
       <h2 className="my-5">
@@ -75,8 +80,7 @@ export default function Main(props) {
         </button>
       </div>
       <p className="py-4">
-        This text has {input.trim().length} characters and{" "}
-        {input.trim().split.length} words.
+        This text has {input.trim().length} characters and {count} words.
       </p>
     </div>
   );
