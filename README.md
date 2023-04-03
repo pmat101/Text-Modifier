@@ -8,6 +8,7 @@
 - Generating random text
 - Changing input to upper/lower case
 - Copying text to clipboard
+- Removing all extra spaces from the text
 - Clearing text to provide a blank input field
 - Hopping between dark mode and light mode as per user's choice
 
