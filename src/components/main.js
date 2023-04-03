@@ -48,7 +48,7 @@ export default function Main(props) {
   return (
     <div className="container" style={{ height: "82vh" }}>
       <h2 className="my-5">
-        Welcome to the Text Modifier app *Made using Bootstrap and ReactJS*
+        Welcome to the <span className="fw-bold fs-1"> Text Modifier </span> app
       </h2>
       <div className="form-floating">
         <textarea
@@ -69,7 +69,7 @@ export default function Main(props) {
         <button className={`btn btn-${textColour} m-2`} onClick={doLow}>
           Make Lowercase
         </button>
-        <button className={`btn btn-${textColour} m-2`} onClick={trim}>
+        <button className={`btn btn-secondary m-2`} onClick={trim}>
           Trim text
         </button>
         <button className="btn btn-success m-2" onClick={copy}>
