@@ -12,4 +12,9 @@
 - Clearing text to provide a blank input field
 - Hopping between dark mode and light mode as per user's choice
 
+### Screenshots:
+
+![screencapture 1](./ss-1.png)
+![screencapture 1](./ss-2.png)
+
 [Live Link](https://text-modifier-react.netlify.app/)
